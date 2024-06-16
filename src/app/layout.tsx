@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
+import { cn } from "@/lib/utils";
+
+import { ContentViewer } from "@/components/content-viewer";
+import { Gameboy } from "@/components/gameboy";
+import { Navbar } from "@/components/navbar";
+
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const dogicaPixel = localFont({ src: "../fonts/Dogica_Pixel.ttf" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +22,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={cn(
+          dogicaPixel.className,
+          "min-h-screen bg-[#24242A] bg-[url('/bg.png')] bg-cover bg-center bg-no-repeat",
+        )}
+      >
+        <main className="flex-col p-7 lg:flex lg:flex-row lg:gap-10 lg:p-20">
+          <div>
+            <Gameboy />
+          </div>
+          <div className="grow">
+            <div className="flex flex-col gap-4">
+              <Navbar />
+              <ContentViewer />
+            </div>
+          </div>
+        </main>
+        {children}
+      </body>
     </html>
   );
 }
