@@ -1,6 +1,6 @@
 export const ContentViewer = () => {
   return (
-    <div className="relative mx-auto flex size-96 flex-col justify-between rounded-xl bg-very-dark-blue p-5 shadow-inset">
+    <div className="relative flex grow flex-col justify-between rounded-xl bg-very-dark-blue p-5 shadow-inset">
       <div className="text-light-blue">
         <h1 className="text-lg">What is Our/Place?</h1>
         <p className="mt-2 text-sm text-white">

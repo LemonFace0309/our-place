@@ -1,6 +1,6 @@
 export const Gameboy = () => {
   return (
-    <div className="mx-auto flex h-screen w-80 flex-col bg-dark-blue p-5 shadow-xl">
+    <div className="mx-auto flex w-80 flex-col bg-dark-blue p-5 shadow-xl">
       <div className="mb-5 flex items-center justify-between">
         <div className="size-8 rounded-full bg-light-blue"></div>
         <div className="text-white">Our/Story</div>

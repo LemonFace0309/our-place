@@ -25,15 +25,13 @@ export default function RootLayout({
       <body
         className={cn(
           dogicaPixel.className,
-          "min-h-screen bg-[#24242A] bg-[url('/bg.png')] bg-cover bg-center bg-no-repeat",
+          "flex min-h-screen bg-[#24242A] bg-[url('/bg.png')] bg-cover bg-center bg-no-repeat",
         )}
       >
-        <main className="flex-col p-7 lg:flex lg:flex-row lg:gap-10 lg:p-20">
-          <div>
-            <Gameboy />
-          </div>
+        <main className="flex grow flex-col p-7 lg:flex-row lg:gap-10 lg:p-20">
+          <Gameboy />
           <div className="grow">
-            <div className="flex flex-col gap-4">
+            <div className="relative flex h-full min-w-full max-w-min flex-col gap-4">
               <Navbar />
               <ContentViewer />
             </div>
