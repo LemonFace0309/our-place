@@ -8,7 +8,7 @@ export const ContentViewer = () => {
           we made home where our homies are. Homies are the friends you learn
           and laugh the most with. They&apos;re the friends who inspire you to
           live with intensity and authenticity. We live vicariously through the
-          homies at Our/Place.
+          homies at Our/Place!
         </p>
       </div>
       <div className="flex items-center justify-between text-white">
