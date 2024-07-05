@@ -28,9 +28,9 @@ export default function RootLayout({
           "flex min-h-screen bg-[#24242A] bg-[url('/bg.png')] bg-cover bg-center bg-no-repeat",
         )}
       >
-        <main className="flex grow flex-col p-7 lg:flex-row lg:gap-10 lg:p-20">
+        <main className="mx-auto grid max-w-[1920px] grow grid-cols-12 flex-col p-7 lg:flex-row lg:gap-10 lg:p-20">
           <Gameboy />
-          <div className="grow">
+          <div className="col-span-8">
             <div className="relative flex h-full min-w-full max-w-min flex-col gap-4">
               <Navbar />
               <ContentViewer />
