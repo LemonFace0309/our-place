@@ -1,0 +1,23 @@
+/* @import "./vars.css"; */
+
+.pixelArt {
+  image-rendering: pixelated;
+}
+
+.camera {
+  width: 100%;
+  height: 100%;
+  /* width: calc(var(--pixel-size) * 300);
+  height: calc(var(--pixel-size) * 300); */
+  overflow: hidden;
+  position: relative;
+}
+
+.map {
+  image-rendering: pixelated;
+  background-image: url("/map.png");
+  background-size: 100%;
+  width: calc(50 * var(--grid-cell));
+  height: calc(50 * var(--grid-cell));
+  position: relative;
+}
