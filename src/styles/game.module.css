@@ -14,10 +14,24 @@
 }
 
 .map {
-  image-rendering: pixelated;
   background-image: url("/map.png");
   background-size: 100%;
   width: calc(50 * var(--grid-cell));
   height: calc(50 * var(--grid-cell));
   position: relative;
+}
+
+.character {
+  width: calc(var(--grid-cell));
+  height: calc(var(--grid-cell));
+  position: absolute;
+  overflow: hidden;
+}
+
+.characterSprite {
+  background: url("/character.png") no-repeat no-repeat;
+  background-size: 100%;
+  width: calc(var(--grid-cell) * 4);
+  height: calc(var(--grid-cell) * 7);
+  position: absolute;
 }
