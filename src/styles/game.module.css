@@ -35,3 +35,25 @@
   height: calc(var(--grid-cell) * 7);
   position: absolute;
 }
+
+.character[data-facing="ArrowRight"] .characterSprite {
+  background-position-x: calc(var(--grid-cell) * -3);
+}
+.character[data-facing="ArrowUp"] .characterSprite {
+  background-position-x: calc(var(--grid-cell) * -1);
+}
+.character[data-facing="ArrowLeft"] .characterSprite {
+  background-position-x: calc(var(--grid-cell) * -2);
+}
+.character[data-walking="true"] .characterSprite {
+  animation: walkAnimation 0.6s steps(4) infinite;
+}
+
+@keyframes walkAnimation {
+  from {
+    transform: translate3d(0%, 0%, 0);
+  }
+  to {
+    transform: translate3d(0px, calc(var(--grid-cell) * -4), 0);
+  }
+}
