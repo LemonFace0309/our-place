@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 import classes from "@/styles/game.module.css";
 import { cn } from "@/lib/utils";
 
-const speed = 1;
+const speed = 0.75;
 const directions = {
   up: "ArrowUp",
   down: "ArrowDown",
@@ -76,7 +76,7 @@ export const Game = () => {
       const camera_top = camera.current.offsetHeight / 2 - 8;
 
       map.current.style.transform = `translate3d( ${-x.current * pixelSize + camera_left}px, ${-y.current * pixelSize + camera_top}px, 0 )`;
-      character.current.style.transform = `translate3d( ${x.current * pixelSize}px, ${y.current * pixelSize}px, 0 )`;
+      character.current.style.transform = `translate3d(${x.current * pixelSize}px, ${y.current * pixelSize}px, 0 )`;
     };
 
     //Set up the game loop
