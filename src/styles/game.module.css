@@ -7,7 +7,7 @@
 .camera {
   width: 100%;
   height: 100%;
-  /* background-color: #1CAAEE; */
+  background-color: #1CAAEE;
   overflow: hidden;
   position: relative;
 }
@@ -53,6 +53,6 @@
     transform: translate3d(0%, 0%, 0);
   }
   to {
-    transform: translate3d(0px, calc(var(--grid-cell) * -4), 0);
+    transform: translate3d(0px, calc(var(--grid-cell) * -4 - 2px), 0);
   }
 }
