@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 
 import classes from "@/styles/game.module.css";
+import { COLLISIONS } from "@/lib/collisions";
 import { cn } from "@/lib/utils";
 
 const speed = 0.75;
@@ -31,19 +32,22 @@ export const Game = () => {
         ),
       );
 
+      let new_x = x.current;
+      let new_y = y.current;
+
       const held_direction = held_directions.current[0];
       if (held_direction) {
         if (held_direction === directions.right) {
-          x.current += speed;
+          new_x += speed;
         }
         if (held_direction === directions.left) {
-          x.current -= speed;
+          new_x -= speed;
         }
         if (held_direction === directions.down) {
-          y.current += speed;
+          new_y += speed;
         }
         if (held_direction === directions.up) {
-          y.current -= speed;
+          new_y -= speed;
         }
         character.current.setAttribute("data-facing", held_direction);
       }
@@ -52,26 +56,28 @@ export const Game = () => {
         held_direction ? "true" : "false",
       );
 
-      //Limits (gives the illusion of walls)
-      // var leftLimit = -8;
-      // var rightLimit = 16 * 11 + 8;
-      // var topLimit = -8 + 32;
-      // var bottomLimit = 16 * 7;
-      // if (x.current < leftLimit) {
-      //   x.current = leftLimit;
-      // }
-      // if (x.current > rightLimit) {
-      //   x.current = rightLimit;
-      // }
-      // if (y.current < topLimit) {
-      //   y.current = topLimit;
-      // }
-      // if (y.current > bottomLimit) {
-      //   y.current = bottomLimit;
-      // }
+      // Collisions
+      // +2.01 on instead of +0.01 to allow character to pass through small corridors
+      const x_cord_top_left = Math.floor((new_x + 2.01) / 16); 
+      const y_cord_top_left = Math.floor((new_y + 2.01) / 16);
+      const x_cort_top_right = Math.floor((new_x + 15.99) / 16);
+      const y_cord_top_right = Math.floor((new_y + 2.01) / 16);
+      const x_cord_bottom_left = Math.floor((new_x + 2.01) / 16);
+      const y_cord_bottom_left = Math.floor((new_y + 15.99) / 16);
+      const x_cord_bottom_right = Math.floor((new_x + 15.99) / 16);
+      const y_cord_bottom_right = Math.floor((new_y + 15.99) / 16);
 
-      // const camera_left = pixelSize * -360;
-      // const camera_top = pixelSize * -460;
+
+      const is_collision =
+        COLLISIONS[y_cord_top_left][x_cord_top_left] === 1 ||
+        COLLISIONS[y_cord_top_right][x_cort_top_right] === 1 ||
+        COLLISIONS[y_cord_bottom_left][x_cord_bottom_left] === 1 ||
+        COLLISIONS[y_cord_bottom_right][x_cord_bottom_right] === 1;
+      if (!is_collision) {
+        x.current = new_x;
+        y.current = new_y;
+      }
+
       const camera_left = camera.current.offsetWidth / 2 - 8;
       const camera_top = camera.current.offsetHeight / 2 - 8;
 

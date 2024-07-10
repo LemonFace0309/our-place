@@ -25,7 +25,7 @@ export default function RootLayout({
       <body
         className={cn(
           dogicaPixel.className,
-          "flex min-h-screen bg-[#24242A] bg-[url('/bg.png')] bg-cover bg-center bg-no-repeat",
+          "flex min-h-screen bg-[#24242A] bg-[url('/bg.png')] bg-cover bg-center bg-no-repeat lg:overflow-hidden",
         )}
       >
         <main className="mx-auto grid max-w-[1920px] grow grid-cols-12 flex-col p-7 lg:flex-row lg:gap-10 lg:p-20">
